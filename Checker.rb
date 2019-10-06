@@ -3,7 +3,7 @@ def checkCountPages(link_category)
   category_page = Nokogiri::HTML(http.body_str)
 
   count_links = category_page.xpath('//span[@class="heading-counter"]').text.to_i
-
+  puts 'Count of products is ' + count_links.to_s
   (count_links % 25).zero? ? count_pages = (count_links / 25) : count_pages = (count_links / 25).next
   return count_pages
 end
